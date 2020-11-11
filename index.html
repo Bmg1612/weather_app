@@ -6,22 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Journal App</title>
     <link rel="stylesheet" href="css/style.css">
-    <!--Choose font-->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Antic+Slab&family=Henny+Penny&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Syne+Mono&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="grid__container">
         <main class="page__main">
             <div class="top__main">
-                <h1>Weather Journal App</h1>
+                <h1 class="heading__top">Weather Journal App</h1>
                 <div class="zipcode">
-                    <label for="zip">Enter Zipcode here</label>
-                    <input type="text" id="zip" placeholder="enter zip code here">
+                    <label for="zip" class="label">Enter Zip code here</label>
+                    <input type="text" id="zip" placeholder="Type in here" class="input">
                 </div>
             </div>
             <div class="low__main">
-                <h2>Recent entries</h2>
+                <h2 class="heading__bottom">Recent entries</h2>
+                <div class="recent__list first"></div>
+                <div class="recent__list second"></div>
+                <div class="recent__list third"></div>
             </div>
         </main>
     </div>

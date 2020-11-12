@@ -1,3 +1,4 @@
+/* Mobile layout */
 body {
   max-width: 100%;
   max-height: 100%;
@@ -16,7 +17,6 @@ body {
   grid-template-areas:
     "main"
     "recent";
-  border: 2px solid red;
 }
 
 .top__main {
@@ -25,13 +25,13 @@ body {
 }
 
 .heading__top {
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: bold;
   text-decoration: underline;
 }
 
 .zipcode {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .label {
@@ -43,7 +43,7 @@ body {
   height: 6rem;
   width: 60%;
   background-color: #f9f9fa;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #0a5730;
   font-weight: bold;
   text-align: center;
@@ -61,10 +61,10 @@ body {
     "first"
     "second"
     "third";
-  border: 2px solid green;
 }
 
 .heading__bottom {
+  grid-area: heading;
   text-align: center;
 }
 
@@ -78,4 +78,49 @@ body {
 
 .third {
   grid-area: third;
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  .heading__top {
+    font-size: 4rem;
+  }
+
+  .zipcode {
+    font-size: 3rem;
+  }
+
+  .input {
+    font-size: 2rem;
+  }
+
+  .heading__bottom {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 901px) {
+  .heading__top {
+    font-size: 5rem;
+  }
+
+  .zipcode {
+    font-size: 3rem;
+  }
+
+  .input {
+    font-size: 2rem;
+  }
+
+  .low__main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 10% 90%;
+    grid-template-areas:
+      "heading heading heading"
+      "first   second  third";
+  }
+
+  .heading__bottom {
+    font-size: 3rem;
+  }
 }

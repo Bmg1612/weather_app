@@ -55,15 +55,16 @@ body {
   text-align: center;
   box-shadow: 2px 2px 4px 6px #dcbff3;
   margin-bottom: 30px;
+  line-height: 80px;
 }
 
 .button {
   height: 6rem;
   width: 6rem;
   background-color: #ff8bab;
-  border-radius: 25%;
+  border-radius: 20%;
   cursor: pointer;
-  font-family: "Syne Mono", monospace;
+  font-family: "Abel", sans-serif;
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 10px;
@@ -81,9 +82,9 @@ body {
   grid-template-rows: 10% 90%;
   grid-template-areas:
     "heading"
-    "first"
-    "second"
-    "third";
+    "date"
+    "temp"
+    "feeling";
   border-top: 2px dotted #000000;
 }
 
@@ -93,16 +94,16 @@ body {
   text-align: center;
 }
 
-.first {
-  grid-area: first;
+.date {
+  grid-area: date;
 }
 
-.second {
-  grid-area: second;
+.temperature {
+  grid-area: temp;
 }
 
-.third {
-  grid-area: third;
+.content {
+  grid-area: feeling;
 }
 
 @media (min-width: 600px) and (max-width: 900px) {
@@ -152,7 +153,7 @@ body {
     grid-template-rows: 10% 90%;
     grid-template-areas:
       "heading heading heading"
-      "first   second  third";
+      "date    temp    feeling";
   }
 
   .heading__bottom {

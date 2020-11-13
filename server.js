@@ -18,12 +18,11 @@ app.use(cors());
 app.use(express.static('website'));
 
 const port = 8000;
-// Callback function - on top of the server variable because it is an arrow function
-const callback = () => {
-    console.log(`running on localhost: ${port}`)
-}
+
 // Spin up the server
-const server = app.listen(port, callback);
+const server = app.listen(port, callback = () => {
+    console.log(`running on localhost: ${port}`)
+});
 // Initialize all route with a callback function
 
 // Callback function to complete GET '/all'
@@ -32,9 +31,12 @@ app.get('/all', function (request, response) {
     response.send(projectData);
   })
 // Post Route
-const data = [];
 const postData = (req, res) => {
     console.log(req.body);
-    data.push(req.body);
+    projectData['date'] = req.body.date;
+    projectData['temperature'] = req.body.temperature;
+    projectData['user_response'] = req.body.user_response;
+    console.log(projectData)
+    res.send(projectData)
 }
-app.post('/', postData)
+app.post('/data', postData)

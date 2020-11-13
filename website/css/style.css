@@ -25,7 +25,8 @@ body {
 }
 
 .heading__top {
-  font-size: 3rem;
+  font-family: "Syne Mono", monospace;
+  font-size: 2.5rem;
   font-weight: bold;
   text-decoration: underline;
 }
@@ -56,6 +57,23 @@ body {
   margin-bottom: 30px;
 }
 
+.button {
+  height: 6rem;
+  width: 6rem;
+  background-color: #ff8bab;
+  border-radius: 25%;
+  cursor: pointer;
+  font-family: "Syne Mono", monospace;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.button:hover {
+  background-color: #ff5483;
+  text-decoration: underline;
+}
+
 .low__main {
   grid-area: recent;
   display: grid;
@@ -66,10 +84,12 @@ body {
     "first"
     "second"
     "third";
+  border-top: 2px dotted #000000;
 }
 
 .heading__bottom {
   grid-area: heading;
+  font-family: "Syne Mono", monospace;
   text-align: center;
 }
 
@@ -110,14 +130,16 @@ body {
 @media (min-width: 901px) {
   .heading__top {
     font-size: 5rem;
+    margin: 10px 0;
   }
 
   .zipcode {
-    font-size: 3.5rem;
+    font-size: 3rem;
+    margin-top: 30px;
   }
 
   .feeling {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .input {

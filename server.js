@@ -27,16 +27,13 @@ const server = app.listen(port, callback = () => {
 
 // Callback function to complete GET '/all'
 app.get('/all', function (request, response) {
-    console.log(request);
     response.send(projectData);
   })
 // Post Route
-const postData = (req, res) => {
-    console.log(req.body);
+app.post('/data', postDataServer = (req, res) => {
     projectData['date'] = req.body.date;
     projectData['temperature'] = req.body.temperature;
     projectData['user_response'] = req.body.user_response;
     console.log(projectData)
     res.send(projectData)
-}
-app.post('/data', postData)
+});

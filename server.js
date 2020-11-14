@@ -25,12 +25,12 @@ const server = app.listen(port, callback = () => {
 });
 // Initialize all route with a callback function
 
-// Callback function to complete GET '/all'
-app.get('/all', function (request, response) {
+// Callback function to complete GET '/data'
+app.get('/data', function (request, response) {
     response.send(projectData);
   })
 // Post Route
-app.post('/data', postDataServer = (req, res) => {
+app.post('/data', postData = (req, res) => {
     projectData['date'] = req.body.date;
     projectData['temperature'] = req.body.temperature;
     projectData['user_response'] = req.body.user_response;

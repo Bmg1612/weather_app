@@ -110,7 +110,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  list-style-type: upper-roman;
   text-align: center;
 }
 

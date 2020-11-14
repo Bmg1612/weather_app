@@ -106,6 +106,18 @@ body {
   grid-area: feeling;
 }
 
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  list-style-type: upper-roman;
+  text-align: center;
+}
+
+.query_item {
+  font-size: 1.5rem;
+}
+
 @media (min-width: 600px) and (max-width: 900px) {
   .heading__top {
     font-size: 4rem;

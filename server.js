@@ -23,7 +23,6 @@ const port = 8000;
 const server = app.listen(port, callback = () => {
     console.log(`running on localhost: ${port}`)
 });
-// Initialize all route with a callback function
 
 // Callback function to complete GET '/data'
 app.get('/data', function (request, response) {

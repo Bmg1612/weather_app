@@ -10,6 +10,7 @@ body {
   font-size: 16px;
 }
 
+/* Mobile first */
 .grid__container {
   display: grid;
   grid-template-columns: 1fr;

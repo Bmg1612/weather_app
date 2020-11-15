@@ -16,7 +16,7 @@ button.addEventListener('click', performAction = () => {
     const newZip = document.getElementById('zip').value;
     const newFeeling = document.getElementById('feeling').value;
     // Personal API Key for OpenWeatherMap API
-    const apiKey = '13f1473acdb89267f932793a8c56106a';
+    const apiKey = 'xxxxxxxxxxxxxxxxx';
     const baseUrl = `http://api.openweathermap.org/data/2.5/weather?zip=${newZip},&appid=${apiKey}&units=metric`;
     displayWeather(baseUrl)
     .then ((data) => {

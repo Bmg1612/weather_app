@@ -16,8 +16,9 @@ button.addEventListener('click', performAction = () => {
     const newZip = document.getElementById('zip').value;
     const newFeeling = document.getElementById('feeling').value;
     // Personal API Key for OpenWeatherMap API
-    const apiKey = 'xxxxxxxxxxxxxxxxx';
+    const apiKey = 'xxxxxxxxxxxxxxxxxxxx';
     const baseUrl = `http://api.openweathermap.org/data/2.5/weather?zip=${newZip},&appid=${apiKey}&units=metric`;
+    if (newFeeling != "" && newZip != "") {
     displayWeather(baseUrl)
     .then ((data) => {
         postData('/data', {
@@ -25,20 +26,29 @@ button.addEventListener('click', performAction = () => {
             temperature: data.main.temp,
             user_response: newFeeling
         });
-        updateUI();   
+        updateUI();       
     })
+  } else {
+      alert("Please enter Zip code and your feelings");
+  }
 });
 
 /* Function to GET Web API Data*/
 const displayWeather = async (url) => {
     let request = await fetch(url);
+    if (request.ok) {
     try {
         const data = await request.json();
         console.log(data);
         return data;
     } catch(error) {
-        console.log("There was an error:", error);
+        Alert("There was an error:", error.message);
     }
+ } else if (request.status === 404) {
+     alert("City not found. Are you sure the Zip is from USA?");
+ } else {
+     alert("There was an error: " + request.statusText)
+ }
 }
 
 /* Function to POST data */

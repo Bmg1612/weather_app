@@ -28,3 +28,7 @@ It is used the OpenWeatherMap API to get the forecasts.
 ## Contributions
 
 Any contributtions and/or suggestions are greatly appreciated.
+
+## License
+
+[MIT License](https://opensource.org/licenses/MIT).

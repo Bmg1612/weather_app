@@ -2,43 +2,47 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Journal App</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Syne+Mono&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Journal App</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Abel&family=Syne+Mono&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="grid__container">
-        <main class="page__main">
-            <div class="top__main">
-                <h1 class="heading__top">Weather Journal App</h1>
-                <div class="zipcode">
-                    <label for="zip" class="label">Enter Zip code here</label>
-                    <input type="text" id="zip" placeholder="Type in here" class="input">
-                </div>
-                <div class="feeling">
-                    <label for="feeling" class="label">And how are you feeling?</label>
-                    <textarea type="text" id="feeling" placeholder="Open your heart" class="input"></textarea>
-                </div>
-                <button id="generate" class="button" type="submit">Generate</button>
-            </div>
-            <div class="low__main" id="entryHolder">
-                <h2 class="heading__bottom">Result</h2>
-                <div class="date" id="date">
-                    <ul id="date_list" class="list"></ul>
-                </div>
-                <div class="temperature" id="temp">
-                    <ul id="temperature_list" class="list"></ul>
-                </div>
-                <div class="content" id="content">
-                    <ul id="content_list" class="list"></ul>
-                </div>
-            </div>
-        </main>
-    </div>
-    <script src="js/app.js"></script>
+  <div class="grid__container">
+    <main class="page__main">
+      <div class="top__main">
+        <h1 class="heading__top">Weather Journal App</h1>
+        <h2 class="project__obs">Obs: This project uses a free API that only fetches places that have ZIP Codes.
+          Countries that have Postal
+          Codes can't be searched through this API.</h2>
+        <div class="zipcode">
+          <label for="zip" class="label">Enter Zip code here</label>
+          <input type="text" id="zip" placeholder="Type in here" class="input">
+        </div>
+        <div class="feeling">
+          <label for="feeling" class="label">And how are you feeling?</label>
+          <textarea type="text" id="feeling" placeholder="Open your heart" class="input"></textarea>
+        </div>
+        <button id="generate" class="button" type="submit">Generate</button>
+      </div>
+      <div class="loader"></div>
+      <div class="low__main" id="entryHolder">
+        <h2 class="heading__bottom">Result</h2>
+        <div class="date" id="date">
+          <ul id="date_list" class="list"></ul>
+        </div>
+        <div class="temperature" id="temp">
+          <ul id="temperature_list" class="list"></ul>
+        </div>
+        <div class="content" id="content">
+          <ul id="content_list" class="list"></ul>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
 </body>
 
 </html>

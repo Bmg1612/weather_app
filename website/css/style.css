@@ -14,7 +14,7 @@ body {
 .grid__container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 2fr;
+  grid-template-rows: min-content;
   grid-template-areas:
     "main"
     "recent";
@@ -32,6 +32,11 @@ body {
   text-decoration: underline;
 }
 
+.project__obs {
+  text-align: justify;
+  padding: 0 15px;
+}
+
 .zipcode {
   font-size: 2rem;
 }
@@ -47,8 +52,8 @@ body {
 }
 
 .input {
-  height: 6rem;
-  width: 60%;
+  height: 4rem;
+  width: 75%;
   background-color: #f9f9fa;
   font-size: 1.3rem;
   color: #0a5730;
@@ -56,7 +61,8 @@ body {
   text-align: center;
   box-shadow: 2px 2px 4px 6px #dcbff3;
   margin-bottom: 30px;
-  line-height: 80px;
+  vertical-align: middle;
+  line-height: 4rem;
 }
 
 .button {
@@ -74,6 +80,39 @@ body {
 .button:hover {
   background-color: #ff5483;
   text-decoration: underline;
+}
+
+.loader {
+  display: none;
+  width: 100%;
+  height: 20%;
+  margin: 10px auto;
+}
+.loader::after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 10px auto;
+  box-sizing: border-box;
+  border: 32px solid #000;
+  border-color: #000 transparent #000 transparent;
+  animation: spin 1.2s infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+    transform: rotate(1800deg);
+  }
 }
 
 .low__main {
@@ -111,16 +150,24 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  text-align: center;
+  text-align: left;
+  list-style-type: none;
+  padding: 0px;
+  padding-left: 40%;
 }
 
 .query_item {
   font-size: 1.5rem;
+  display: inline-block;
 }
 
 @media (min-width: 600px) and (max-width: 900px) {
   .heading__top {
     font-size: 4rem;
+  }
+
+  .project__obs {
+    padding: 0 20px;
   }
 
   .zipcode {
@@ -132,7 +179,10 @@ body {
   }
 
   .input {
+    height: 6rem;
+    width: 60%;
     font-size: 2rem;
+    line-height: 6rem;
   }
 
   .heading__bottom {
@@ -146,6 +196,10 @@ body {
     margin: 10px 0;
   }
 
+  .project__obs {
+    padding: 0 30px;
+  }
+
   .zipcode {
     font-size: 3rem;
     margin-top: 30px;
@@ -156,13 +210,16 @@ body {
   }
 
   .input {
+    height: 6rem;
+    width: 60%;
     font-size: 2rem;
+    line-height: 6rem;
   }
 
   .low__main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 10% 90%;
+    grid-template-rows: min-content;
     grid-template-areas:
       "heading heading heading"
       "date    temp    feeling";

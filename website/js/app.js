@@ -40,15 +40,18 @@ button.addEventListener("click", () => {
   });
 
   async function getApiKey() {
-    const req = await fetch("/api");
     try {
+      const req = await fetch("/api");
       const data = await req.json();
       console.log(data);
       apiKey = data.key;
       console.log(apiKey);
       return apiKey;
-    } catch (error) {
-      alert("There was an error:", error.message);
+    } catch (e) {
+      document.getElementById("entryHolder").innerHTML =
+        '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
+      document.querySelector(".loader").style.display = "";
+      document.getElementById("entryHolder").style.display = "block";
       return false;
     }
   }
@@ -64,9 +67,17 @@ button.addEventListener("click", () => {
         return alert("There was an error:", error.message);
       }
     } else if (request.status === 404) {
-      return alert("City not found. Are you sure the Zip is from USA?");
+      document.getElementById("entryHolder").innerHTML =
+        '<h3 class="error"><strong>Error!</strong> Sorry, city not found. Are you sure the Zip is from USA?</h3>';
+      document.querySelector(".loader").style.display = "";
+      document.getElementById("entryHolder").style.display = "block";
+      return false;
     } else {
-      return alert(`There was an error: ${request.statusText}`);
+      document.getElementById("entryHolder").innerHTML =
+        '<h3 class="error"><strong>Error!</strong> Sorry, there was an error fetching the weather data, can you please reload the page and try again?</h3>';
+      document.querySelector(".loader").style.display = "";
+      document.getElementById("entryHolder").style.display = "block";
+      return false;
     }
   }
 
@@ -84,22 +95,24 @@ button.addEventListener("click", () => {
     try {
       const newData = await response.json();
       return newData;
-    } catch (error) {
-      alert("There was an error:", error);
+    } catch (e) {
+      document.getElementById("entryHolder").innerHTML =
+        '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
+      document.querySelector(".loader").style.display = "";
+      document.getElementById("entryHolder").style.display = "block";
       return false;
     }
   }
 
   /* Dynamically updating the UI */
   async function updateUI() {
-    const request = await fetch("/data");
-
     const dateList = document.querySelector("#date_list");
     const tempList = document.querySelector("#temperature_list");
     const contentList = document.querySelector("#content_list");
     const entryHolder = document.querySelector("#entryHolder");
 
     try {
+      const request = await fetch("/data");
       const allData = await request.json();
       dateList.innerHTML = `<li class="query_item">Date: ${allData.date}</li>`;
       tempList.innerHTML = `<li class="query_item">Temperature: ${allData.temperature.toFixed(
@@ -111,8 +124,12 @@ button.addEventListener("click", () => {
       //Showing the results div when the button is clicked
       entryHolder.style.display = "grid";
       entryHolder.scrollIntoView({ behavior: "smooth" });
-    } catch (error) {
-      console.log("There was an error:", error);
+    } catch (e) {
+      document.getElementById("entryHolder").innerHTML =
+        '<h3 class="error"><strong>Error!</strong> Sorry, there was an internal error, can you please reload the page and try again?</h3>';
+      document.querySelector(".loader").style.display = "";
+      document.getElementById("entryHolder").style.display = "block";
+      return false;
     }
   }
 });

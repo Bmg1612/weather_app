@@ -22,22 +22,22 @@ button.addEventListener("click", () => {
   document.querySelector(".loader").style.display = "inline-block";
   document.querySelector(".loader").scrollIntoView({ behavior: "smooth" });
 
-  getApiKey().then(() => {
-    const baseUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${newZip},&appid=${apiKey}&units=metric`;
-    if (newFeeling !== "" && newZip !== "") {
-      displayWeather(baseUrl)
-        .then((data) => {
-          return postData("/data", {
-            date: newDate,
-            temperature: data.main.temp,
-            user_response: newFeeling,
-          });
-        })
-        .then(() => updateUI());
-    } else {
-      alert("Please enter Zip code and your feelings");
-    }
-  });
+  getApiKey()
+    .then(() => {
+      if (newFeeling !== "" && newZip !== "") {
+        return displayWeather();
+      } else {
+        return alert("Please enter Zip code and your feelings");
+      }
+    })
+    .then((data) => {
+      return postData("/data", {
+        date: newDate,
+        temperature: data.main.temp,
+        user_response: newFeeling,
+      });
+    })
+    .then(() => updateUI());
 
   async function getApiKey() {
     try {
